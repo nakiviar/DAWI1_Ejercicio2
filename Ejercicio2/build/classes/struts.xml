@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="Ejercicio2" namespace="/"
+		extends="struts-default">
+
+		<action name="ingreso" method="login"
+			class="action.UsuarioAction">
+			<result name="Bienvenido">
+				index.jsp
+			</result>
+			<result name="Error">
+				login.jsp
+			</result>
+		</action>
+
+		<action name="reg" method="registrar"
+			class="action.UsuarioAction">
+			<result name="ok">
+				registro.jsp
+			</result>
+		</action>
+
+		<action name="Login">
+			<result>login.jsp</result>
+		</action>
+		
+		<action name="Registro">
+			<result>registro.jsp</result>
+		</action>
+
+	</package>
+
+</struts>
