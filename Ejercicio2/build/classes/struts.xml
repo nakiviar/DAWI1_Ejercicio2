@@ -5,8 +5,7 @@
 
 <struts>
 	<package name="Ejercicio2" namespace="/"
-		extends="struts-default">
-
+		extends="struts-default ,json-default"> <!-- Añadir json-default para convertir la lista en formato json -->
 		<action name="ingreso" method="login"
 			class="action.UsuarioAction">
 			<result name="Bienvenido">
@@ -27,11 +26,43 @@
 		<action name="Login">
 			<result>login.jsp</result>
 		</action>
-		
+
 		<action name="Registro">
 			<result>registro.jsp</result>
+		</action>
+
+		<action name="regprod" method="registrarProducto"
+			class="action.ProductoAction">
+			<result name="ok">
+				registroProductos.jsp
+			</result>
+			<result name="error">
+				registroProductos.jsp
+			</result>
+		</action>
+
+		<action name="llenaCombo" method="listadoCategorias"
+			class="action.ProductoAction">
+			<result name="ok" type="json">
+			</result>
+		</action>
+
+		<action name="filtro" method="listadoCategoriasXfiltro"
+			class="action.ProductoAction">
+			<result name="ok" type="json">
+				registroProductos.jsp
+			</result>
+		</action>
+
+		<action name="listaProd" method="listadoProductos"
+			class="action.ProductoAction">
+			<result name="ok">
+				listadoProductos.jsp
+			</result>
 		</action>
 
 	</package>
 
 </struts>
+<!-- jquery-plugin, json query añadir en el package : json default agregar 
+	el type="json" en el result -->

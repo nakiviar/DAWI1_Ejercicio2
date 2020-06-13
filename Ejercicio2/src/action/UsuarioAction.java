@@ -27,15 +27,22 @@ public class UsuarioAction extends ActionSupport {
 			addActionError("usuario vacio");
 
 		}
-		if (!usuario.matches("[a-zA-Z0-9_Ò—]+@peru\\.com")) {
+		if (!usuario.matches("[a-zA-Z0-9_Ò—]+@peru\\.com")) {//-@gg.ez
 			addActionError("Formato de correo no valido");
 
 		}
 		// backslash paara caracteres especiales usadas en pattern
+		Usuario u2 = new Usuario();
+		u2.setUsuario(usuario);
+		u2.setClave(clave);
 
-		if (usuario.equals("admin@peru.com") && clave.equals("123")) {
+		GestionUsuario gu = new GestionUsuario();
+
+		Usuario u = gu.validarUsuario(u2);
+		
+		if (u != null) {
 			mensaje = "Credenciales correctos";
-			addActionMessage(mensaje);
+			addActionMessage("Bienvenid(a)"+u.getNombre());
 			LOGGER.log(Level.INFO, mensaje);
 			return "Bienvenido";
 		} else {
@@ -47,7 +54,7 @@ public class UsuarioAction extends ActionSupport {
 
 	}
 
-	// TAREA : Validar los datos del registro
+	// TAREA 1: Validar los datos del registro
 	public String registrar() {
 		System.out.println(u);
 		/* Llamamos al metodo registrar */

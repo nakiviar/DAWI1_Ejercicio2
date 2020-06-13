@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="ISO-8859-1"%>
+ 	pageEncoding="UTF-8"%>
 <%@ taglib uri="/struts-tags" prefix="s"%>
 <%@taglib uri="/struts-jquery-tags" prefix="sj" %>
+<%@taglib uri="/struts-bootstrap-tags" prefix="sb"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +26,7 @@
 
 <sj:head/>
 <sj:head jqueryui="true" jquerytheme="blitzer"/>
-
+<sb:head/>
 </head>
 
 
@@ -34,7 +35,7 @@
 
 	
 
-	<s:actionmessage/>
+	<s:actionmessage  theme="bootstrap"/>
 
 	<p>
 		<s:property value="mensaje" />
